@@ -63,8 +63,9 @@ function getMoreData() {
       return response.json();
     })
     .then(function (data) {
-      let test = data.data.changePercent24Hr;
-      change1.innerHTML = `24hr Change: ${(data.data.changePercent24Hr) * 1000}%`
+      console.log(data.data.changePercent24Hr.substring(0,6))
+      // let test = data.data.changePercent24Hr.substring(0, 4);
+      change1.innerHTML = `24hr Change: ${data.data.changePercent24Hr.substring(0, 6)}%`
       change2.textContent = `24hr Change: ${data.data.changePercent24Hr} %`
     });
 }
