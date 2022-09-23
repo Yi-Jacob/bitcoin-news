@@ -6,7 +6,11 @@
 }
 
 .green {
-  color: green;
+  color: green !important;
+}
+
+.test {
+  color: black;
 }
 
 .marquee {

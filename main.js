@@ -54,6 +54,9 @@ getFees()
 
 var change1 = document.querySelector("#change1");
 var change2 = document.querySelector("#change2");
+var cap1 = document.querySelector("#cap1");
+var cap2 = document.querySelector("#cap2");
+
 
 function getMoreData() {
   var url = "https://api.coincap.io/v2/assets/bitcoin";
@@ -63,11 +66,27 @@ function getMoreData() {
       return response.json();
     })
     .then(function (data) {
-      console.log(data.data.changePercent24Hr.substring(0,6))
-      // let test = data.data.changePercent24Hr.substring(0, 4);
-      change1.innerHTML = `24hr Change: ${data.data.changePercent24Hr.substring(0, 6)}%`
-      change2.textContent = `24hr Change: ${data.data.changePercent24Hr} %`
+      console.log(data.data.marketCapUsd)
+      console.log(Number(data.data.marketCapUsd)?.toLocaleString({
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      }))
+      if (Number(data.data.changePercent24Hr) >= 0) {
+        change1.className = "category green"
+        change2.className = "category green"
+      }
+      change1.innerHTML = `24hr Change: ${data.data.changePercent24Hr.substring(0, 4)}%`
+      change2.textContent = `24hr Change: ${data.data.changePercent24Hr.substring(0, 4)}%`
+      cap1.innerHTML = `Market Cap: $${data.data.marketCapUsd?.toLocaleString(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      })}`
+      cap2.textContent = `Market Cap: $${data.data.marketCapUsd?.toLocaleString(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      })}`
     });
 }
+
 
 getMoreData()
