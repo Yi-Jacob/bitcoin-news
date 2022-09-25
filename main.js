@@ -52,8 +52,6 @@ function getFees() {
 
 getFees()
 
-var change1 = document.querySelector("#change1");
-var change2 = document.querySelector("#change2");
 var cap1 = document.querySelector("#cap1");
 var cap2 = document.querySelector("#cap2");
 var supply1 = document.querySelector("#supply1");
@@ -77,20 +75,22 @@ function getMoreData() {
         change1.className = "category green"
         change2.className = "category green"
       }
-      change1.innerHTML = `24hr Change: ${data.data.changePercent24Hr.substring(0, 4)}%`
-      change2.textContent = `24hr Change: ${data.data.changePercent24Hr.substring(0, 4)}%`
       supply1.textContent = `Circulating Supply: ${Number(data.data.supply)?.toLocaleString()}`
       supply2.textContent = `Circulating Supply: ${Number(data.data.supply)?.toLocaleString()}`
-      cap1.innerHTML = `Market Cap: $${Number(data.data.marketCapUsd)?.toLocaleString(undefined, {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
-      })}`
-      cap2.textContent = `Market Cap: $${Number(data.data.marketCapUsd)?.toLocaleString(undefined, {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
-      })}`
+      cap1.innerHTML = `Market Cap: $${data.data.marketCapUsd.substring(0, 3)} bn`
+      cap2.textContent = `Market Cap: $${data.data.marketCapUsd.substring(0, 3)} bn`
     });
 }
 
 
 getMoreData()
+
+
+// cap1.innerHTML = `Market Cap: $${Number(data.data.marketCapUsd)?.toLocaleString(undefined, {
+//   minimumFractionDigits: 2,
+//   maximumFractionDigits: 2
+// })}`
+// cap2.textContent = `Market Cap: $${Number(data.data.marketCapUsd)?.toLocaleString(undefined, {
+//   minimumFractionDigits: 2,
+//   maximumFractionDigits: 2
+// })}`
