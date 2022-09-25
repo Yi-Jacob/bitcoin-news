@@ -1,16 +1,8 @@
 /*Default Style Page*/
 
 /*Marquee stile*/
-.red {
-  color: red;
-}
-
 .green {
   color: green !important;
-}
-
-.test {
-  color: black;
 }
 
 .marquee {
@@ -35,6 +27,7 @@
   font-weight: 500;
   animation: animate-marquee 80s linear infinite;
   animation-delay: -40s;
+  vertical-align: middle;
 }
 
 .marquee .scroll div:nth-child(2) {
@@ -44,6 +37,11 @@
 
 .marquee .scroll div .category {
   /*padding: 0px 10px;*/
+}
+
+a {
+    text-decoration: none;
+    color: #e2e2e2;
 }
 
 .category {
@@ -56,7 +54,6 @@
   overflow: hidden;
   white-space: nowrap;
   line-height: 20px;
-  font-family: sans-serif;
 }
 
 
