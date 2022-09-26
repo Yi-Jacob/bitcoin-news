@@ -30,7 +30,7 @@
   vertical-align: middle;
 }
 
-.marquee .scroll div:nth-child(3) {
+.marquee .scroll div:nth-child(2) {
   animation: animate-marquee-2 20s linear infinite;
   animation-delay: -40s;
 }
